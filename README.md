@@ -93,3 +93,128 @@ By default, **OpenAI Gym** provides a `FrozenLake-v0` environment which can be s
     gym
     pygame
     pickle (standard library)
+
+4. **Install dependencies:**
+   ```bash
+    python -c "import gym; import pygame; print('All good!')"
+
+---
+
+## Usage
+
+### Running the Jupyter Notebook
+- Open the Jupyter Notebook to see the training code, explanations, and step-by-step environment interactions.
+    ```bash
+    jupyter notebook environment_frozenlake.ipynb
+    ```
+- Execute each cell to:
+  - Load the environment.
+  - Train the Q-table for each map.
+  - Demonstrate how the agent navigates using the learned Q-table.
+  - Save the Q-table in a `.model` file.
+
+### Running the Advanced Pygame Interface
+- Once the Q-table is trained and saved, run the Pygame script to visualize the agent’s behavior:
+    ```bash
+    python advanced_pygame_interface.py
+    ```
+- **Controls:**
+  - **SPACE:** Agent takes one step manually using the Q-table.
+  - **A:** Toggle auto-simulation mode. The agent moves automatically.
+  - **R:** Reset the environment and agent state.
+  - **Close Window:** Exit the game.
+
+---
+
+## How Q-learning Works
+
+Q-learning is an off-policy, model-free reinforcement learning algorithm. It learns a function `Q(s, a)` that estimates the maximum discounted future reward for taking an action `a` in state `s`, and following the optimal policy thereafter.
+
+**1. Initialization:**
+- Initialize the Q-table with zeros for all `(state, action)` pairs.
+
+**2. Episode Loop:**
+- **Reset** the environment to the start state.
+- **For each step:**
+  - **Action Selection:**  
+    Use an epsilon-greedy policy: with probability `ϵ` select a random action, otherwise select the best action according to the Q-table.
+  - **Update Q-table:**  
+    After taking action `a` in state `s` and moving to state `s'` with reward `r`, update using:
+    ```bash
+    Q(s, a) ← (1 - α) * Q(s, a) + α * (r + γ * max_{a'} Q(s', a'))
+    ```
+  - **Transition:**  
+    Update state `s → s'` and continue until the episode terminates.
+- **Exploration Decay:**  
+  Gradually reduce `ϵ` to shift from exploration to exploitation over time.
+
+---
+
+## Pygame Interface Explanation
+
+The `advanced_pygame_interface.py` script provides a visual, interactive game window with:
+
+### Grid Visualization
+- A 4×4 grid representing the Frozen Lake environment using custom tile images.
+- Animated movement of the agent via interpolation frames.
+
+### Side Panel
+- Displays stats such as wins, losses, and current steps.
+- Shows control instructions and auto-simulation status.
+
+### Animations & Sounds
+- Smooth agent movement between tiles.
+- Optional sound effects for moves, wins, and losses (if files are provided).
+
+---
+
+## Customization
+
+- **Map Selection:**  
+  Change the `index_peta` variable to choose different maps.
+- **Environment Settings:**  
+  Toggle `is_slippery` between `True` and `False` to adjust randomness.
+- **Visual & Audio Enhancements:**  
+  Replace tile images (`start.png`, `frozen.png`, `hole.png`, `goal.png`) and add sound effects as desired.
+- **Learning Parameters:**  
+  Modify Q-learning parameters (learning rate, discount factor, exploration rate) in the notebook to experiment with performance.
+
+---
+
+## Screenshots
+
+*(Add screenshots or GIFs here to showcase your interface.)*
+
+---
+
+## Future Improvements
+
+- **Deep Reinforcement Learning:**  
+  Implement Deep Q-Network (DQN) for more complex environments.
+- **Dynamic Map Generation:**  
+  Generate new maps procedurally to challenge the agent.
+- **Leaderboard or High Score:**  
+  Track the best performance metrics over multiple episodes.
+- **Enhanced Graphics:**  
+  Introduce more advanced animations, background music, and UI elements.
+- **Multi-Agent RL:**  
+  Explore cooperative or competitive multi-agent scenarios on a larger grid.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+---
+
+## Acknowledgments
+
+- **OpenAI Gym** for the Frozen Lake environment.
+- **Numpy** and the **Python** community for essential scientific computing tools.
+- **Pygame** for the graphical interface framework.
+- Contributions from the RL community and various online tutorials.
+
+---
+
+Thank you for checking out this project! If you find it useful or interesting, please consider giving it a star on GitHub. Contributions via pull requests or issues are welcome.
