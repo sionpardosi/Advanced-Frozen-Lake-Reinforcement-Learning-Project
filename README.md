@@ -71,7 +71,25 @@ By default, **OpenAI Gym** provides a `FrozenLake-v0` environment which can be s
 
 ---
 
-## Project Structure
+## Installation
 
-A typical folder structure could be as follows:
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/frozen-lake-rl.git
+   cd frozen-lake-rl
 
+2. **Create and activate a virtual environment (optional but recommended):**
+
+    ``` python -m venv venv
+    source venv/bin/activate     # On Linux/Mac
+    # or
+    venv\Scripts\activate        # On Windows
+
+3. **Install dependencies:**
+   ```bash
+    pip install -r requirements.txt
+    The main libraries include:
+    numpy
+    gym
+    pygame
+    pickle (standard library)
