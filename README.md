@@ -183,7 +183,13 @@ The `advanced_pygame_interface.py` script provides a visual, interactive game wi
 
 ## Screenshots
 
-*(Add screenshots or GIFs here to showcase your interface.)*
+**Game Start:**
+
+![Game Start](https://github.com/sionpardosi/Advanced-Frozen-Lake-Reinforcement-Learning-Project/blob/main/app%20image.png)
+
+**Game Win:**
+
+![Game Win](https://github.com/sionpardosi/Advanced-Frozen-Lake-Reinforcement-Learning-Project/blob/main/app%20image%20win.png)
 
 ---
 
